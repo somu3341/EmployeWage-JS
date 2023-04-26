@@ -56,11 +56,11 @@ function getWorkingHours(empCheck){
                     return 0;    
     }
 }
-empHR=0;
-empCheck=Math.floor(Math.random()*10) %3;
-empHR=getWorkingHours(empCheck);
- empWage=empHR * WAGE_PER_HR;
-console.log("Employee Wage: "+empWage);
+ let empHRS=0;
+let employeeCheck=Math.floor(Math.random()*10) %3;
+empHRS=getWorkingHours(employeeCheck);
+ employeWage=empHR * WAGE_PER_HR;
+console.log("Employee Wage: "+employeWage);
 //UC4
 const NUMOF_WORKING_HRS=20;
 empHR=0;
