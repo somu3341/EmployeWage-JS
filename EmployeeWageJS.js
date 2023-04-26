@@ -56,8 +56,17 @@ function getWorkingHours(empCheck){
                     return 0;    
     }
 }
-let empHRS=0;
-let employeeCheck=Math.floor(Math.random()*3);
-empHRS=getWorkingHours(employeeCheck);
-let employeWage=empHRS * WAGE_PER_HR;
-console.log("Employee Wage: "+employeWage);
+empHR=0;
+empCheck=Math.floor(Math.random()*10) %3;
+empHR=getWorkingHours(empCheck);
+ empWage=empHR * WAGE_PER_HR;
+console.log("Employee Wage: "+empWage);
+//UC4
+const NUMOF_WORKING_HRS=20;
+empHR=0;
+for(let day=0; day < NUMOF_WORKING_HRS; day++){
+    let empCheck=Math.floor(Math.random() *10) %3;
+    empHRS+=getWorkingHours(empCheck);
+}
+empWage=empHRS * WAGE_PER_HR;
+console.log("Total Hrs: "+empHRS+" Emp Wage: "+empWage)
