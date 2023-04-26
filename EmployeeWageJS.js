@@ -30,7 +30,7 @@ function askDefault(yes, no, theQue='Can you Answer?'){
     if(question(theQue)) yes();
     else no();
 }
-function ask(theQue, ....others){
+function ask(theQue,...others){
     if(question(theQue)) others[0]()
     else others[1]();
 }
@@ -45,3 +45,19 @@ let question=function(theQue){
 };
 ask("Do you agree?", showOk, showCancel);
 askDefault(showOk,showCancel);
+//UC3
+function getWorkingHours(empCheck){
+    switch(empCheck){
+        case PART_TIME:
+            return PART_TIME_HR;
+            case FULL_TIME:
+                return FULL_TIME_HR;
+                default:
+                    return 0;    
+    }
+}
+let empHRS=0;
+let employeeCheck=Math.floor(Math.random()*3);
+empHRS=getWorkingHours(employeeCheck);
+let employeWage=empHRS * WAGE_PER_HR;
+console.log("Employee Wage: "+employeWage);
