@@ -24,3 +24,24 @@ switch(checkemp){
 }
 let empWage=checkemp*WAGE_PER_HR;
 console.log("Employee Wage = "+empWage);
+//Functionsws
+'use strict';
+function askDefault(yes, no, theQue='Can you Answer?'){
+    if(question(theQue)) yes();
+    else no();
+}
+function ask(theQue, ....others){
+    if(question(theQue)) others[0]()
+    else others[1]();
+}
+function showOk(){
+    alert ("You agreed.");
+}
+function showCancel(){
+    alert("You cancelled the execution.");
+}
+let question=function(theQue){
+    return confirm(theQue);
+};
+ask("Do you agree?", showOk, showCancel);
+askDefault(showOk,showCancel);
