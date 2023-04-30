@@ -25,26 +25,26 @@ switch(checkemp){
 let empWage=checkemp*WAGE_PER_HR;
 console.log("Employee Wage = "+empWage);
 //Functionsws
-'use strict';
-function askDefault(yes, no, theQue='Can you Answer?'){
-    if(question(theQue)) yes();
-    else no();
-}
-function ask(theQue,...others){
-    if(question(theQue)) others[0]()
-    else others[1]();
-}
-function showOk(){
-    alert ("You agreed.");
-}
-function showCancel(){
-    alert("You cancelled the execution.");
-}
-let question=function(theQue){
-    return confirm(theQue);
-};
-ask("Do you agree?", showOk, showCancel);
-askDefault(showOk,showCancel);
+// 'use strict';
+// function askDefault(yes, no, theQue='Can you Answer?'){
+//     if(question(theQue)) yes();
+//     else no();
+// }
+// function ask(theQue,...others){
+//     if(question(theQue)) others[0]()
+//     else others[1]();
+// }
+// function showOk(){
+//     alert ("You agreed.");
+// }
+// function showCancel(){
+//     alert("You cancelled the execution.");
+// }
+// let question=function(theQue){
+//     return confirm(theQue);
+// };
+// ask("Do you agree?", showOk, showCancel);
+// askDefault(showOk,showCancel);
 //UC3
 function getWorkingHours(empCheck){
     switch(empCheck){
@@ -82,3 +82,16 @@ while(totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS)
 }
 empWage=totalEmpHrs * WAGE_PER_HR;
 console.log("UC5 - Total Days: " + totalWorkingDays + " Total Hrs: "+totalEmpHrs+" Emp Wage: "+empWage);
+//UC6
+function calDailyWage(empHRS) {
+    return empHRS*WAGE_PER_HR;
+}
+while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS){
+    totalWorkingDays++;
+    let empCheck=Math.floor(Math.random() * 10) %3;
+    let empHRS=getWorkingHours(empCheck);
+    totalEmpHrs+=empHRS;
+    empDailyWageArr.push(calDailyWage(empHRS));
+}
+let empWag=calDailyWage(totalEmpHrs);
+console.log("UC6 - Total Days: " + totalWorkingDays+" Taotal Hrs: "+totalEmpHrs+" Emp Wage"+empWag);
