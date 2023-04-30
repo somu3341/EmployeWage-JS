@@ -82,7 +82,7 @@ while(totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS)
 }
 empWage=totalEmpHrs * WAGE_PER_HR;
 console.log("UC5 - Total Days: " + totalWorkingDays + " Total Hrs: "+totalEmpHrs+" Emp Wage: "+empWage);
-//UC6
+//UC6 Arrays
 function calDailyWage(empHRS) {
     return empHRS*WAGE_PER_HR;
 }
@@ -95,3 +95,51 @@ while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS
 }
 let empWag=calDailyWage(totalEmpHrs);
 console.log("UC6 - Total Days: " + totalWorkingDays+" Taotal Hrs: "+totalEmpHrs+" Emp Wage"+empWag);
+//UC 7A Array Helper functions
+let totEmpWage=0;
+function sum(dailyWage){
+    totEmpWage += dailyWage;
+}
+empDailyWageArr.forEach(sum)
+console.log("UC7A - Total Days: " +totalWorkingDays+" Total Hrs: "+totalEmpHrs +" Emp Wage: "+totEmpWage);
+function totalWages(totalWage, dailyWage){
+    return totalWage + dailyWage;
+}
+console.log("UC7A - Emp Wage with resuce: "+empDailyWageArr.reduce(totalWages,0));
+//UC 7B
+let dailyCntr=0;
+function mapDayWithWage(dailyWage){
+    dailyCntr+ " = "+dailyWage
+}
+let mapDayWithWageArr = empDailyWageArr.map(mapDayWithWage);
+console.log("UC7B-Daily Wage Map");
+console.log(mapDayWithWageArr);
+//UC 7C
+function fulltimeWage(dailyWage){
+    return dailyWage.includes("160");
+}
+let fullDayWageArr = mapDayWithWageArr.filter(fulltimeWage);
+console.log("UC7C - Daily Wage Filter when Fulltime Wage Earned");
+console.log(fullDayWageArr);
+//UC 7D
+function findFulltimeWage(dailyWage){
+    return dailyWage.includes("160");
+}
+console.log("UC 7D - First time Fulltime Wage was earned on Day: "+mapDayWithWageArr.find(findFulltimeWage));
+//UC 7E
+function isFullTimeWage(dailyWage){
+    return dailyWage.includes("160");
+}
+console.log("UC 7E - Check All Element have Full Time Wage: "+fullDayWageArr.every(isFullTimeWage));
+//UC 7F
+function isAnyPartTimeWage(dailyWage){
+    return dailyWage.includes("80");
+}
+console.log("UC 7F - Check If Any Part Time Wage: "+mapDayWithWageArr.some(isAnyPartTimeWage));
+//UC 7G
+function totalDaysWorked(numOfDays, dailyWage){
+    if (dailyWage > 0)
+    return numOfDays+1;
+    return numOfDays;
+}
+console.log("UC 7G - Num of Days Emp Worked: "+empDailyWageArr.redice(totalDaysWorked,0));
