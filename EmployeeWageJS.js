@@ -200,5 +200,33 @@ while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS
         });
 }
 console.log("UC 10 - Daily Hous Worked and Wage Earned: "+empDailyHrsAndWageArr);
+//UC11 
+//UC11A
+let totalwages = empDailywageandHrsArr.filter(dailywageandhrs=>dailywageandhrs.dailywage>0).reduce((totalWage,dailywageandhrs)=>totalWage += dailywageandhrs.dailywage,0);
+let totalhrs = empDailywageandHrsArr.filter(dailywageandhrs=>dailywageandhrs.dailywage>0).reduce((totalhr,dailywageandhrs)=>totalhr += dailywageandhrs.dailywage,0);
+console.log("UC 11A Total Wages"+totalwages+" Total Hrs ----->"+totalhrs);
+let d=0;
+function mapDaywithWage1(dailywage)
+{
+    d++;
+    return dailyCntr + " = "+dailywage;
+}
+let mapDaywage = empDailywageandHrsArr.map(mapDaywithWage1);
+console.log("Daily Wage Map");
+console.log(mapDaywage);
+//UC11C
+empDailywageandHrsArr.filter(dailywageandhrs=>dailywageandhrs.dailyhrs==8).forEach(dailywageandhrs=>console.log(dailywageandhrs.toString()));
+//UC11D
+empDailywageandHrsArr.find(dailywageandhrs=>dailywageandhrs.dailyhrs==8).forEach(dailywageandhrs=>console.log(dailywageandhrs.toString()));
+//UC11D
+//UC11E
+let flag1=empDailywageandHrsArr.every(dailywageandhrs=>dailywageandhrs.dailywage==160);
+console.log(flag1);
+//UC11F
+let flag2=empDailywageandHrsArr.some(dailywageandhrs=>dailywageandhrs.dailywage==80);
+console.log(flag2);
+//UC11G
+let totalworkedday = empDailywageandHrsArr.filter(dailywageandhrs=>dailywageandhrs.dailywage>0).reduce((numday,dailywageandhrs)=>numday += dailywageandhrs.dailywage,0);
+console.log(totalworkedday);
 
 
